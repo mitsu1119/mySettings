@@ -3,14 +3,19 @@
 --
 
 import XMonad
+import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 
-import XMonad.Util.Run
+import qualified XMonad.StackSet as W
+
 import XMonad.Util.EZConfig
+import XMonad.Util.Run
+
+myWorkSpaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 main = do
 	barproc <- spawnPipe "xmobar"
@@ -18,28 +23,44 @@ main = do
 		{ normalBorderColor = "#111111"
 		, focusedBorderColor = "#89b6e2"
 		, modMask = mod4Mask
-		, terminal = "urxvt"
+		, terminal = "alacritty"
 		, borderWidth = 2
 		, layoutHook = myLayoutHook
 		, startupHook = myStartupHook
 		, manageHook = myManageHook
 		, logHook = myLogHook barproc
-		} `additionalKeys`
-		[ ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-		, ((0, xK_Print), spawn "scrot")
-		, ((mod4Mask, xK_Return), spawn "urxvt")
-		, ((mod4Mask, xK_d), spawn "rofi -show run")
-		, ((mod4Mask, xK_l), nextWS)
-		, ((mod4Mask, xK_h), prevWS)
-		, ((mod4Mask .|. shiftMask, xK_l), shiftToNext)
-		, ((mod4Mask .|. shiftMask, xK_h), shiftToPrev)
+		, workspaces = myWorkSpaces
+		}
+		----------------------------------------------
+		--            windows operation             --
+		----------------------------------------------
+		`additionalKeysP`
+		[ ("M4-l", nextWS)
+		, ("M4-h", prevWS)
+		, ("M4-S-l", shiftToNext)
+		, ("M4-S-h", shiftToPrev)
+		]
+		----------------------------------------------
+		--         workspace operataion             --
+		----------------------------------------------
+		`additionalKeys`
+		[ ((m .|. mod4Mask, k), windows $ f i)
+			| (i, k) <- zip myWorkSpaces [xK_1 ..]
+			, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask), (copy, controlMask)]
+		]
+		----------------------------------------------
+		--          desktop operation               --
+		----------------------------------------------
+		`additionalKeysP`
+		[ ("M4-<Return>", spawn "alacritty")
+		, ("M4-<Print>", spawn "sleep 0.2; scrot -s")
+		, ("M4-d", spawn "rofi -show run")
 		]
 
 myLayoutHook = avoidStruts $ layoutHook defaultConfig
 
 -- Start up applications
 myStartupHook = do
-	spawn "nm-applet"
 	spawn "feh --bg-fill $HOME/Pictures/wallpaper.jpg"
 	spawn "xcompmgr"
 
