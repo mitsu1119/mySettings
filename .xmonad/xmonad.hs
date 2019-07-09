@@ -18,7 +18,7 @@ import XMonad.Util.Run
 myWorkSpaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 main = do
-	barproc <- spawnPipe "xmobar"
+	barproc <- spawnPipe myXmonad
 	xmonad $ docks  defaultConfig
 		{ normalBorderColor = "#111111"
 		, focusedBorderColor = "#89b6e2"
@@ -70,3 +70,5 @@ myLogHook h = dynamicLogWithPP xmobarPP {
 	ppCurrent = xmobarColor "#ffc123" "" . wrap "[" "]",
 	ppTitle = xmobarColor "#c8e7a8" "" . shorten 80
 }		
+
+myXmonad = "xmobar $HOME/.xmonad/xmobarrc"
