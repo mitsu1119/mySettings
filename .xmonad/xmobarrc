@@ -1,0 +1,26 @@
+Config {
+	font = "Cica 1M:size=13",
+	bgColor = "#1c1c1c",
+	fgColor = "#f2f2f2",
+	position = TopSize C 100 20,
+	lowerOnStart = False,
+	overrideRedirect = False,
+	border = BottomBM 0,
+	borderColor = "#4e4e4e",
+	commands = [
+		Run Cpu [
+			"-L", "3", "-H", "50", "--normal", "green", "--high", "red"
+		] 10,
+		Run Memory [
+			"-t", "Mem: <usedratio>%"
+		] 10,
+		Run Swap [
+			"-t", "Swap: <used>%"
+		] 10,
+		Run Date "%a %b %_d %l:%M" "date" 10,
+		Run StdinReader
+	],
+	sepChar = "%",
+	alignSep = "}{",
+	template = "%StdinReader% }{ %cpu% | %memory% * %swap% | <fc=#ee9a00>%date%</fc>  "
+}
