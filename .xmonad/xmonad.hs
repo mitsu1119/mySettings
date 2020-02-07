@@ -23,7 +23,7 @@ main = do
 		{ normalBorderColor = "#111111"
 		, focusedBorderColor = "#89b6e2"
 		, modMask = mod4Mask
-		, terminal = "alacritty"
+		, terminal = "terminator"
 		, borderWidth = 2
 		, layoutHook = myLayoutHook
 		, startupHook = myStartupHook
@@ -52,7 +52,7 @@ main = do
 		--          desktop operation               --
 		----------------------------------------------
 		`additionalKeysP`
-		[ ("M4-<Return>", spawn "alacritty")
+		[ ("M4-<Return>", spawn "terminator")
 		, ("M4-<Print>", spawn "sleep 0.2; scrot -s")
 		, ("M4-d", spawn "rofi -show run")
 		]
