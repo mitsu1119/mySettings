@@ -22,7 +22,7 @@ main = do
 	xmonad $ docks  defaultConfig
 		{ normalBorderColor = "#111111"
 		, focusedBorderColor = "#89b6e2"
-		, modMask = mod4Mask
+		, modMask = mod1Mask
 		, terminal = "terminator"
 		, borderWidth = 2
 		, layoutHook = myLayoutHook
@@ -35,16 +35,16 @@ main = do
 		--            windows operation             --
 		----------------------------------------------
 		`additionalKeysP`
-		[ ("M4-l", nextWS)
-		, ("M4-h", prevWS)
-		, ("M4-S-l", shiftToNext)
-		, ("M4-S-h", shiftToPrev)
+		[ ("M1-l", nextWS)
+		, ("M1-h", prevWS)
+		, ("M1-S-l", shiftToNext)
+		, ("M1-S-h", shiftToPrev)
 		]
 		----------------------------------------------
 		--         workspace operataion             --
 		----------------------------------------------
 		`additionalKeys`
-		[ ((m .|. mod4Mask, k), windows $ f i)
+		[ ((m .|. mod1Mask, k), windows $ f i)
 			| (i, k) <- zip myWorkSpaces [xK_1 ..]
 			, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask), (copy, controlMask)]
 		]
@@ -52,9 +52,9 @@ main = do
 		--          desktop operation               --
 		----------------------------------------------
 		`additionalKeysP`
-		[ ("M4-<Return>", spawn "terminator")
-		, ("M4-<Print>", spawn "sleep 0.2; scrot -s")
-		, ("M4-d", spawn "rofi -show run")
+		[ ("M1-<Return>", spawn "terminator")
+		, ("M1-<Print>", spawn "sleep 0.2; scrot -s")
+		, ("M1-d", spawn "rofi -show run")
 		]
 
 myLayoutHook = avoidStruts $ layoutHook defaultConfig
