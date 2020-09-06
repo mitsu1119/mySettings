@@ -1,5 +1,11 @@
 [global_config]
 [keybindings]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    font = Source Code Variable Medium 10
+    scrollback_infinite = True
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -9,8 +15,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    cursor_color = "#aaaaaa"
-    font = Source Code Variable Medium 15
-    use_system_font = False
