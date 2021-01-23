@@ -55,6 +55,8 @@ main = do
 		[ ("M1-<Return>", spawn "terminator")
 		, ("M1-<Print>", spawn "sleep 0.2; scrot -s")
 		, ("M1-d", spawn "rofi -show run")
+		, ("<XF86MonBrightnessUp>"  , spawn "xbacklight + 5 -time 100 -steps 1")
+		, ("<XF86MonBrightnessDown>", spawn "xbacklight - 5 -time 100 -steps 1")
 		]
 
 myLayoutHook = avoidStruts $ layoutHook defaultConfig

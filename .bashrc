@@ -18,6 +18,9 @@ PATH="$PATH":$HOME/.gem/ruby/2.7.0/bin
 GOPATH=$HOME/go
 PATH="$PATH":$GOPATH/bin
 
+# cuda
+PATH="$PATH":/opt/cuda/bin
+
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
