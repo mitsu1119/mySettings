@@ -1,0 +1,11 @@
+configuration {
+	modi:	"keys,system:~/.config/rofi/rofi_system.sh";
+	sidebar-mode:	true;
+	hide-scrollbar:	true;
+	kb-row-up:		"Alt+k,Up";
+	kb-row-down:	"Alt+j,Down";
+	kb-mode-previous:	"Shift+Left,Alt+h";
+	kb-mode-next:	"Shift+Right,Alt+l";
+	kb-cancel:		"Escape,Alt+d";
+}
+@theme	"/usr/share/rofi/themes/glue_pro_blue.rasi"

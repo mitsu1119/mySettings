@@ -1,9 +1,0 @@
-rofi.modi:	keys, system:~/.config/rofi/rofi_system.sh
-rofi.theme:	/usr/share/rofi/themes/glue_pro_blue.rasi
-rofi.sidebar-mode:	true
-rofi.hide-scrollbar:	true
-rofi.kb-row-up:		Alt+k,Up
-rofi.kb-row-down:	Alt+j,Down
-rofi.kb-mode-previous:	Shift+Left,Alt+h
-rofi.kb-mode-next:	Shift+Right,Alt+l
-rofi.kb-cancel:		Escape,Alt+d
