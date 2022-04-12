@@ -57,6 +57,9 @@ main = do
 		, ("M1-d", spawn "rofi -show run")
 		, ("<XF86MonBrightnessUp>"  , spawn "xbacklight + 5 -time 100 -steps 1")
 		, ("<XF86MonBrightnessDown>", spawn "xbacklight - 5 -time 100 -steps 1")
+		, ("<XF86AudioRaiseVolume>", spawn "amixer sset Master 10%+")
+		, ("<XF86AudioLowerVolume>", spawn "amixer sset Master 10%-")
+		, ("<XF86AudioMute>", spawn "amixer sset Master toggle")	
 		]
 
 myLayoutHook = avoidStruts $ layoutHook defaultConfig

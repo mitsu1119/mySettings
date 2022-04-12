@@ -3,7 +3,7 @@
 [profiles]
   [[default]]
     cursor_color = "#aaaaaa"
-    font = Source Code Variable Medium 10
+    font = Source Code Variable Medium 14
     scrollback_infinite = True
     use_system_font = False
 [layouts]
