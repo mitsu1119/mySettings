@@ -1,5 +1,5 @@
 configuration {
-	modi:	"keys,system:~/.config/rofi/rofi_system.sh";
+	modi:	"keys,system:~/.config/rofi/rofi_system.sh,run";
 	sidebar-mode:	true;
 	hide-scrollbar:	true;
 	kb-row-up:		"Alt+k,Up";
