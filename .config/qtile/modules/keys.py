@@ -67,4 +67,5 @@ keys = [
     Key([], "XF86AudioMute",lazy.spawn("amixer set Master toggle")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight + 5 -time 100 -steps 1")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -5 -time 100 -steps 1")),
+    Key([], "Print", lazy.spawn("scrot ~/%Y-%m-%d-%T-screenshot.png")),
 ]
